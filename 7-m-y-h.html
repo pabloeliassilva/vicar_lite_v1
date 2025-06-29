@@ -1,11 +1,178 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Vicar Ganadera - 7️⃣ M y H</title><style>#event-timer-banner { padding: 8px 15px; text-align: center; font-weight: bold; font-size: 1.1em; width: 100%; box-sizing: border-box; margin-bottom: 10px; transition: background-color 0.5s, color 0.5s; display: none; } #event-timer-banner.countdown { background-color: var(--primary-color); color: #ffffff; } html.dark-mode #event-timer-banner.countdown { background-color: #F59E0B; color: #1a202c; } #event-timer-banner.urgent { background-color: #F59E0B; color: #1a202c; animation: pulse-urgent 1.5s infinite; } html.dark-mode #event-timer-banner.urgent { background-color: #F59E0B; color: #1a202c; } #event-timer-banner.live { background-color: #39FF14; color: #000000; font-size: 1.3em; animation: pulse-live 1.5s infinite; text-shadow: 0 0 8px rgba(255,255,255,0.7); } #event-timer-banner.finished { background-color: #000000; color: #ffffff; } html.dark-mode #event-timer-banner.finished { background-color: #ffffff; color: #000000; } @keyframes pulse-urgent { 0% { opacity: 1; } 50% { opacity: 0.8; } 100% { opacity: 1; } } @keyframes pulse-live { 0% { box-shadow: 0 0 4px #39FF14, 0 0 8px #39FF14; } 50% { box-shadow: 0 0 15px #39FF14, 0 0 25px #39FF14; } 100% { box-shadow: 0 0 4px #39FF14, 0 0 8px #39FF14; } } @media screen and (max-width: 768px) { #event-timer-banner { font-size: 0.85em; padding: 8px 10px; letter-spacing: -0.5px; } #event-timer-banner.live { font-size: 1.1em; } }/* CSS General y de Tema (Claro/Oscuro) */ :root { --bg-color: #f4f4f9; --card-bg-color: #ffffff; --text-color: #333; --text-color-light: #555; --header-bg-color: #ffffff; --footer-bg-color: #ffffff; --nav-bg-color: #f8f8f8; --primary-color: #0063a3; --primary-color-hover: #004a7c; --secondary-color: #e67e22; --border-color: #ddd; --table-row-even-bg: #f8f8f8; --table-row-hover-bg: #e9ecef; --button-secondary-bg: #6c757d; --button-secondary-hover: #5a6268; --card-shadow: 0 4px 8px rgba(0,0,0,0.1); --qr-button-bg: #555; --qr-button-hover: #333; } html.dark-mode { --bg-color: #1a202c; --card-bg-color: #2d3748; --text-color: #E2E8F0; --text-color-light: #A0AEC0; --header-bg-color: #2d3748; --footer-bg-color: #2d3748; --nav-bg-color: #283141; --primary-color: #4299E1; --primary-color-hover: #2b6cb0; --secondary-color: #F6AD55; --border-color: #4A5568; --table-row-even-bg: #2c3a4f; --table-row-hover-bg: #3a4b64; --button-secondary-bg: #4A5568; --button-secondary-hover: #2D3748; --card-shadow: 0 4px 8px rgba(0,0,0,0.3); --qr-button-bg: #A0AEC0; --qr-button-hover: #718096; } body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); display: flex; flex-direction: column; min-height: 100vh; transition: background-color 0.3s, color 0.3s; } .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; flex-grow: 1; width: 95%; } .header { text-align: center; padding: 20px 10px; border-bottom: 1px solid var(--border-color); background-color: var(--header-bg-color); transition: background-color 0.3s, border-color 0.3s; } .header .main-banner { max-width: 220px; height: auto; margin-bottom: 20px; } .event-title { font-size: 1.8em; color: var(--text-color); margin: 15px 0; font-weight: bold; } .event-tag-container { max-width: 800px; margin: 0 auto; } .event-tag { font-size: 1.1em; color: var(--text-color-light); margin: 0; line-height: 1.6; } .event-tag b { color: var(--primary-color); } .nav-container, .sort-controls { text-align: center; padding: 15px 10px; background-color: var(--nav-bg-color); border-bottom: 1px solid var(--border-color); transition: background-color 0.3s, border-color 0.3s;} .nav-container { flex-wrap: wrap; display: flex; justify-content: center; gap: 8px;} .sort-controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; } .nav-button, .sort-button { text-decoration: none; border: none; color: white; padding: 10px 18px; margin: 0; border-radius: 5px; font-weight: bold; cursor: pointer; transition: background-color 0.3s, transform 0.2s; } .nav-button { background-color: var(--primary-color); } .nav-button:hover { background-color: var(--primary-color-hover); transform: translateY(-2px); } .nav-button.active { background-color: var(--secondary-color); } .sort-button { background-color: var(--button-secondary-bg); font-size: 0.9em; } .sort-button:hover { background-color: var(--button-secondary-hover); } .sort-button.active { background-color: var(--primary-color); font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); } .category-title { font-size: 1.8em; text-align: center; color: var(--text-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-top: 10px; margin-bottom: 30px; } .video-grid, .maps-grid-container { display: grid; gap: 25px; grid-template-columns: 1fr; } .card { background: var(--card-bg-color); border-radius: 8px; box-shadow: var(--card-shadow); overflow: hidden; display: flex; flex-direction: column; transition: background-color 0.3s, box-shadow 0.3s; } .card.chart-card img { width: 100%; height: auto; } .card .video-wrapper { cursor: pointer; } .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background-color: #000; } .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; } .card-content { padding: 15px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; } .card-title { font-size: 1.1rem; font-weight: 600; margin: 0 0 15px 0; color: var(--text-color); } .card-description { font-size: 0.95em; color: var(--text-color-light); text-align: left; line-height: 1.5; flex-grow: 1; } .card-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; } .whatsapp-button, .qr-button { flex: 1; display: inline-block; padding: 12px 20px; color: white; text-decoration: none; border: none; border-radius: 5px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background-color 0.2s; text-align: center; } .whatsapp-button { background-color: #25D366; } .whatsapp-button:hover { background-color: #128C7E; } .qr-button { background-color: var(--qr-button-bg); color: var(--card-bg-color); } html.dark-mode .qr-button { color: var(--text-color); } .qr-button:hover { background-color: var(--qr-button-hover); } .table-container { width: 100%; overflow-x: auto; margin-top: 10px; } .lotes-table { border-collapse: collapse; width: 100%; margin: 0; font-size: 1em; box-shadow: var(--card-shadow); background-color: var(--card-bg-color); } .lotes-table th, .lotes-table td { padding: 12px 15px; border: 1px solid var(--border-color); text-align: center; } .lotes-table th { background-color: var(--primary-color); color: white; font-weight: bold; } .lotes-table th.sortable-header { cursor: pointer; } .lotes-table th.sortable-header:hover { background-color: var(--primary-color-hover); } .lotes-table th.sortable-header.active { background-color: var(--secondary-color); } .lotes-table tbody tr { transition: background-color 0.2s; } .lotes-table tbody tr:nth-child(even) { background-color: var(--table-row-even-bg); } .lotes-table tbody tr:hover { background-color: var(--table-row-hover-bg); } .charts-section { display: flex; flex-direction: column; gap: 25px; margin-top: 25px; } .chart-row-double { display: grid; grid-template-columns: 1fr; gap: 25px; } .chart-row-single { display: block; } .chart-card { padding: 15px; } .theme-switcher-container { text-align: center; padding: 30px 0 10px 0; } .theme-toggle-button { background-color: var(--button-secondary-bg); color: white; border: none; padding: 12px 25px; font-size: 1rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: background-color 0.3s, transform 0.2s; } .theme-toggle-button:hover { transform: translateY(-2px); background-color: var(--button-secondary-hover); } .footer { background-color: var(--footer-bg-color); color: #888; text-align: center; padding: 20px 10px; border-top: 1px solid var(--border-color); margin-top: auto; transition: background-color 0.3s, border-color 0.3s; } .footer p { margin: 0; font-size: 0.9em; } .modal-overlay { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; } .modal-content { background-color: var(--card-bg-color); margin: auto; padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); width: 90%; max-width: 350px; position: relative; animation: fadeIn 0.3s; } .modal-header { padding-bottom: 15px; border-bottom: 1px solid var(--border-color); } .modal-header h3 { margin: 0; color: var(--text-color); text-align: center; } .modal-body { padding-top: 15px; text-align: center; } .modal-body img { max-width: 100%; height: auto; border-radius: 4px; } .modal-close { color: var(--text-color-light); position: absolute; top: 10px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; } .modal-close:hover { color: var(--text-color); } @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } } @media (min-width: 769px) { .video-grid, .maps-grid-container { grid-template-columns: repeat(2, 1fr); } .chart-row-double { grid-template-columns: repeat(2, 1fr); } } @media (min-width: 1050px) { .video-grid { grid-template-columns: repeat(3, 1fr); } } @media screen and (max-width: 768px) { .event-title { font-size: 1.5em; } .event-tag, .nav-button, .sort-button, .footer p { font-size: 0.9em; } .nav-button, .sort-button { padding: 8px 12px; } .lotes-table { box-shadow: none; } .lotes-table thead { display: none; } .lotes-table, .lotes-table tbody, .lotes-table tr, .lotes-table td { display: block; width: 100%; box-sizing: border-box;} .lotes-table tr { margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 5px; background-color: var(--card-bg-color); box-shadow: var(--card-shadow); } .lotes-table td { text-align: right; padding-left: 50%; position: relative; border: none; border-bottom: 1px solid var(--border-color); } .lotes-table td:last-child { border-bottom: none; } .lotes-table td::before { content: attr(data-label); position: absolute; left: 15px; width: calc(50% - 20px); text-align: left; font-weight: bold; color: var(--text-color); } }</style></head><body><div id="event-timer-banner"></div><header class="header"><img src="https://vicar.com.ar/wp-content/uploads/2017/02/logo-vicar-300x80.png" alt="Logo Vicar" class="main-banner"><h1 class="event-title">🔨 Remate Feria</h1><div class="event-tag-container"><p class="event-tag"><b>Jueves 3 de Julio de 2025 a las 14:30hs</b><br>Predio ferial de la Sociedad Rural de Toay, <b>TOAY</b>, La Pampa</p></div></header><nav class="nav-container"><a href="index.html" class="nav-button ">🐮 Inicio</a><a href="1-gordo.html" class="nav-button ">1️⃣ Gordo</a><a href="2-toro.html" class="nav-button ">2️⃣ Toro</a><a href="3-vaca.html" class="nav-button ">3️⃣ Vaca</a><a href="4-vientre-prenado.html" class="nav-button ">4️⃣ Vientre Preñado</a><a href="5-vientre-parido.html" class="nav-button ">5️⃣ Vientre Parido</a><a href="6-macho.html" class="nav-button ">6️⃣ Macho</a><a href="7-m-y-h.html" class="nav-button active">7️⃣ M y H</a><a href="8-hembra.html" class="nav-button ">8️⃣ Hembra</a><a href="lista.html" class="nav-button ">📋 Lotes</a><a href="estimados.html" class="nav-button ">📝 Estimados</a><a href="siguiente.html" class="nav-button ">▶ Siguiente</a><a href="preguntas.html" class="nav-button ">❓ Preguntas</a><a href="contactos.html" class="nav-button ">📱 Contactos</a></nav><div class="sort-controls"><button class="sort-button " data-column="corral" data-label="Corral" data-order="asc">Corral </button>
-<button class="sort-button " data-column="grupo" data-label="Grupo" data-order="asc">Grupo </button>
-<button class="sort-button " data-column="categoria" data-label="Categoría" data-order="asc">Categoría </button>
-<button class="sort-button active" data-column="cantidad" data-label="Cantidad" data-order="desc">Cantidad 🔽</button>
-<button class="sort-button " data-column="peso" data-label="Peso" data-order="desc">Peso </button>
-<button class="sort-button " data-column="plazo" data-label="Plazo" data-order="asc">Plazo </button>
-<button class="sort-button " data-column="sanidad" data-label="Sanidad" data-order="asc">Sanidad </button>
-<button class="sort-button " data-column="china" data-label="China" data-order="asc">China </button>
-<button class="sort-button " data-column="motivo" data-label="Motivo" data-order="asc">Motivo </button>
-<button class="sort-button " data-column="reproduccion" data-label="Reproducción" data-order="asc">Reproducción </button>
-<button class="sort-button " data-column="calificacion" data-label="Calificación" data-order="asc">Calificación </button></div><main class="container"><h2 class="category-title">7️⃣ M y H</h2><div id="video-grid-container" class="video-grid"><div class="card" style="padding: 20px; text-align: center;"><p>No hay lotes disponibles en esta categoría.</p></div></div></main><div class="theme-switcher-container"><button id="theme-toggle" class="theme-toggle-button">💡</button></div><footer class="footer"><p>Vicar Ganadera S.A. - Consignatarios desde 1964 - Remates Feria en Victorica - Toay - General Acha</p></footer><div id="qrModal" class="modal-overlay"><div class="modal-content"><span class="modal-close" onclick="hideQrPopup()">×</span><div class="modal-header"><h3 id="qrModalTitle"></h3></div><div class="modal-body"><img id="qrModalImage" src="" alt="Código QR del Lote" /></div></div></div><script>const qrModal = document.getElementById('qrModal'), qrModalTitle = document.getElementById('qrModalTitle'), qrModalImage = document.getElementById('qrModalImage'); function showQrPopup(title, qrUrl) { if (qrModal && qrModalTitle && qrModalImage) { qrModalTitle.textContent = title; qrModalImage.src = qrUrl; qrModalImage.alt = 'Código QR para ' + title; qrModal.style.display = 'flex'; } } function hideQrPopup() { if (qrModal) { qrModal.style.display = 'none'; } } window.addEventListener('click', function(event) { if (event.target == qrModal) { hideQrPopup(); } });</script><script>(function() { const themeToggle = document.getElementById('theme-toggle'); const htmlElement = document.documentElement; const lightText = '💡'; const darkText = '🕶'; const chartImages = document.querySelectorAll('.chart-image'); function applyTheme(theme) { if (theme === 'dark') { htmlElement.classList.add('dark-mode'); themeToggle.textContent = darkText; chartImages.forEach(img => { if (img.src.includes('quickchart.io')) { let newSrc = img.src.replace(/backgroundColor=transparent/g, 'backgroundColor=%232d3748').replace(/fontColor..333/g, 'fontColor:%23E2E8F0').replace(/fontColor..444/g, 'fontColor:%23E2E8F0').replace(/color..444/g, 'color:%23E2E8F0').replace(/fontColor..555/g, 'fontColor:%23A0AEC0').replace(/labels: { fontColor: '#333' }/g, "labels: { fontColor: '#E2E8F0' }"); img.src = newSrc; } }); } else { htmlElement.classList.remove('dark-mode'); themeToggle.textContent = lightText; chartImages.forEach(img => { if (img.src.includes('quickchart.io')) { let newSrc = img.src.replace(/backgroundColor=%232d3748/g, 'backgroundColor=transparent').replace(/fontColor:%23E2E8F0/g, 'fontColor:%23333').replace(/color:%23E2E8F0/g, 'color:%23444').replace(/fontColor:%23A0AEC0/g, 'fontColor:%23555').replace(/labels: { fontColor: '#E2E8F0' }/g, "labels: { fontColor: '#333' }"); img.src = newSrc; } }); } } const savedTheme = localStorage.getItem('vicar-theme') || 'light'; applyTheme(savedTheme); themeToggle.addEventListener('click', () => { const currentTheme = htmlElement.classList.contains('dark-mode') ? 'dark' : 'light'; const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; localStorage.setItem('vicar-theme', newTheme); applyTheme(newTheme); }); })();</script><script>(function() { const banner = document.getElementById('event-timer-banner'); const startDateStr = 'Thu Jul 03 2025 14:30:00 GMT-0300 (GMT-03:00)'; const endDateStr = 'Thu Jul 03 2025 20:00:00 GMT-0300 (GMT-03:00)'; if (!banner || !startDateStr || !endDateStr) { return; } const parseDate = (dateStr) => { if (typeof dateStr === 'string' && dateStr.includes('Date')) { const timestamp = parseInt(dateStr.match(/\d+/)[0]); return new Date(timestamp); } return new Date(dateStr); }; const startDate = parseDate(startDateStr); const endDate = parseDate(endDateStr); if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) { return; } let timerInterval = null; function updateTimer() { const now = new Date(); if (now > endDate) { banner.style.display = 'block'; banner.className = 'finished'; banner.innerHTML = '🔨 Remate Finalizado'; if (timerInterval) clearInterval(timerInterval); } else if (now >= startDate && now <= endDate) { banner.style.display = 'block'; banner.className = 'live'; banner.innerHTML = '🐮 AHORA 🐄'; if (timerInterval) clearInterval(timerInterval); } else { banner.style.display = 'block'; const diff = startDate - now; const days = Math.floor(diff / 86400000); const hours = Math.floor((diff % 86400000) / 3600000); const minutes = Math.floor((diff % 3600000) / 60000); const seconds = Math.floor((diff % 60000) / 1000); let text = ''; if (diff < 86400000) { banner.className = 'urgent'; text = `🎆 Faltan ${hours} Horas ${minutes} Minutos ${seconds} Segundos 🌆`; } else { banner.className = 'countdown'; text = `🥁 Faltan ${days} Días ${hours} Horas ${minutes} Minutos ${seconds} Segundos ⏱`; } banner.innerHTML = text; } } timerInterval = setInterval(updateTimer, 1000); updateTimer(); })();</script></body></html>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Vicar Ganadera - 7️⃣ M y H</title>
+  <style>
+    :root {
+      --bg-color: #f4f4f9; --card-bg-color: #ffffff; --text-color: #333; --text-color-light: #555;
+      --header-bg-color: #ffffff; --footer-bg-color: #ffffff; --nav-bg-color: #f8f8f8;
+      --primary-color: #0063a3; --primary-color-hover: #004a7c; --secondary-color: #e67e22;
+      --border-color: #ddd; --table-row-even-bg: #f8f8f8; --table-row-hover-bg: #e9ecef;
+      --button-secondary-bg: #6c757d; --button-secondary-hover: #5a6268; --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      --qr-button-bg: #555; --qr-button-hover: #333;
+    }
+    html.dark-mode {
+      --bg-color: #1a202c; --card-bg-color: #2d3748; --text-color: #E2E8F0; --text-color-light: #A0AEC0;
+      --header-bg-color: #2d3748; --footer-bg-color: #2d3748; --nav-bg-color: #283141;
+      --primary-color: #4299E1; --primary-color-hover: #2b6cb0; --secondary-color: #F6AD55;
+      --border-color: #4A5568; --table-row-even-bg: #2c3a4f; --table-row-hover-bg: #3a4b64;
+      --button-secondary-bg: #4A5568; --button-secondary-hover: #2D3748; --card-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      --qr-button-bg: #A0AEC0; --qr-button-hover: #718096;
+    }
+    
+    #event-timer-banner {
+      padding: 8px 15px; text-align: center; font-weight: bold; font-size: 1.1em;
+      width: 100%; box-sizing: border-box; margin-bottom: 10px; 
+      transition: background-color 0.5s, color 0.5s; display: none;
+    }
+    #event-timer-banner.countdown { background-color: var(--primary-color); color: #ffffff; }
+    html.dark-mode #event-timer-banner.countdown { background-color: #F59E0B; color: #1a202c; }
+    #event-timer-banner.urgent { background-color: #F59E0B; color: #1a202c; animation: pulse-urgent 1.5s infinite; }
+    #event-timer-banner.live { background-color: #39FF14; color: #000000; font-size: 1.3em; animation: pulse-live 1.5s infinite; text-shadow: 0 0 8px rgba(255,255,255,0.7); }
+    #event-timer-banner.finished { background-color: #000000; color: #ffffff; }
+    html.dark-mode #event-timer-banner.finished { background-color: #ffffff; color: #000000; }
+    @keyframes pulse-urgent { 0% { opacity: 1; } 50% { opacity: 0.8; } 100% { opacity: 1; } }
+    @keyframes pulse-live { 0% { box-shadow: 0 0 4px #39FF14, 0 0 8px #39FF14; } 50% { box-shadow: 0 0 15px #39FF14, 0 0 25px #39FF14; } 100% { box-shadow: 0 0 4px #39FF14, 0 0 8px #39FF14; } }
+    @media screen and (max-width: 768px) {
+      #event-timer-banner { font-size: 0.85em; padding: 8px 10px; letter-spacing: -0.5px; }
+      #event-timer-banner.live { font-size: 1.1em; }
+    }
+  
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); display: flex; flex-direction: column; min-height: 100vh; transition: background-color 0.3s, color 0.3s; }
+    .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; flex-grow: 1; width: 95%; }
+    .header { text-align: center; padding: 20px 10px; border-bottom: 1px solid var(--border-color); background-color: var(--header-bg-color); transition: background-color 0.3s, border-color 0.3s; }
+    .header .main-banner { max-width: 220px; height: auto; margin-bottom: 20px; }
+    .event-title { font-size: 1.8em; color: var(--text-color); margin: 15px 0; font-weight: bold; }
+    .event-tag-container { max-width: 800px; margin: 0 auto; } .event-tag { font-size: 1.1em; color: var(--text-color-light); margin: 0; line-height: 1.6; } .event-tag b { color: var(--primary-color); }
+    .nav-container, .sort-controls { text-align: center; padding: 15px 10px; background-color: var(--nav-bg-color); border-bottom: 1px solid var(--border-color); transition: background-color 0.3s, border-color 0.3s;}
+    .nav-container { flex-wrap: wrap; display: flex; justify-content: center; gap: 8px;}
+    .sort-controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .nav-button, .sort-button { text-decoration: none; border: none; color: white; padding: 10px 18px; margin: 0; border-radius: 5px; font-weight: bold; cursor: pointer; transition: background-color 0.3s, transform 0.2s; }
+    .nav-button { background-color: var(--primary-color); } .nav-button:hover { background-color: var(--primary-color-hover); transform: translateY(-2px); } .nav-button.active { background-color: var(--secondary-color); }
+    .sort-button { background-color: var(--button-secondary-bg); font-size: 0.9em; } .sort-button:hover { background-color: var(--button-secondary-hover); } .sort-button.active { background-color: var(--primary-color); font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+    .category-title { font-size: 1.8em; text-align: center; color: var(--text-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-top: 10px; margin-bottom: 30px; }
+    .video-grid, .maps-grid-container { display: grid; gap: 25px; grid-template-columns: 1fr; }
+    .card { background: var(--card-bg-color); border-radius: 8px; box-shadow: var(--card-shadow); overflow: hidden; display: flex; flex-direction: column; transition: background-color 0.3s, box-shadow 0.3s; }
+    .card.chart-card img { width: 100%; height: auto; }
+    .card .video-wrapper { cursor: pointer; }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background-color: #000; } .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .card-content { padding: 15px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; } .card-title { font-size: 1.1rem; font-weight: 600; margin: 0 0 15px 0; color: var(--text-color); } .card-description { font-size: 0.95em; color: var(--text-color-light); text-align: left; line-height: 1.5; flex-grow: 1; }
+    .card-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
+    .whatsapp-button, .qr-button { flex: 1; display: inline-block; padding: 12px 20px; color: white; text-decoration: none; border: none; border-radius: 5px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background-color 0.2s; text-align: center; }
+    .whatsapp-button { background-color: #25D366; } .whatsapp-button:hover { background-color: #128C7E; }
+    .qr-button { background-color: var(--qr-button-bg); color: var(--card-bg-color); } html.dark-mode .qr-button { color: var(--text-color); } .qr-button:hover { background-color: var(--qr-button-hover); }
+    .table-container { width: 100%; overflow-x: auto; margin-top: 10px; }
+    .lotes-table { border-collapse: collapse; width: 100%; margin: 0; font-size: 1em; box-shadow: var(--card-shadow); background-color: var(--card-bg-color); }
+    .lotes-table th, .lotes-table td { padding: 12px 15px; border: 1px solid var(--border-color); text-align: center; }
+    .lotes-table th { background-color: var(--primary-color); color: white; font-weight: bold; }
+    .lotes-table th.sortable-header { cursor: pointer; } .lotes-table th.sortable-header:hover { background-color: var(--primary-color-hover); } .lotes-table th.sortable-header.active { background-color: var(--secondary-color); }
+    .lotes-table tbody tr { transition: background-color 0.2s; } .lotes-table tbody tr:nth-child(even) { background-color: var(--table-row-even-bg); } .lotes-table tbody tr:hover { background-color: var(--table-row-hover-bg); }
+    .charts-section { display: flex; flex-direction: column; gap: 25px; margin-top: 25px; } .chart-row-double { display: grid; grid-template-columns: 1fr; gap: 25px; } .chart-row-single { display: block; } .chart-card { padding: 15px; }
+    .theme-switcher-container { text-align: center; padding: 30px 0 10px 0; } .theme-toggle-button { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+    .footer { background-color: var(--footer-bg-color); color: #888; text-align: center; padding: 20px 10px; border-top: 1px solid var(--border-color); margin-top: auto; transition: background-color 0.3s, border-color 0.3s; } .footer p { margin: 0; font-size: 0.9em; }
+    .modal-overlay { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
+    .modal-content { background-color: var(--card-bg-color); margin: auto; padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); width: 90%; max-width: 350px; position: relative; animation: fadeIn 0.3s; }
+    .modal-header { padding-bottom: 15px; border-bottom: 1px solid var(--border-color); } .modal-header h3 { margin: 0; color: var(--text-color); text-align: center; }
+    .modal-body { padding-top: 15px; text-align: center; } .modal-body img { max-width: 100%; height: auto; border-radius: 4px; }
+    .modal-close { color: var(--text-color-light); position: absolute; top: 10px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; } .modal-close:hover { color: var(--text-color); }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .placeholder-content { text-align: center; padding: 50px 20px; color: var(--text-color-light); border: 2px dashed var(--border-color); border-radius: 8px; margin-top: 20px; }
+    @media (min-width: 769px) { .video-grid, .maps-grid-container { grid-template-columns: repeat(2, 1fr); } .chart-row-double { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1050px) { .video-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media screen and (max-width: 768px) {
+      .event-title { font-size: 1.5em; } .event-tag, .nav-button, .sort-button, .footer p { font-size: 0.9em; } .nav-button, .sort-button { padding: 8px 12px; }
+      .lotes-table { box-shadow: none; } .lotes-table thead { display: none; }
+      .lotes-table, .lotes-table tbody, .lotes-table tr, .lotes-table td { display: block; width: 100%; box-sizing: border-box;}
+      .lotes-table tr { margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 5px; background-color: var(--card-bg-color); box-shadow: var(--card-shadow); }
+      .lotes-table td { text-align: right; padding-left: 50%; position: relative; border: none; border-bottom: 1px solid var(--border-color); } .lotes-table td:last-child { border-bottom: none; }
+      .lotes-table td::before { content: attr(data-label); position: absolute; left: 15px; width: calc(50% - 20px); text-align: left; font-weight: bold; color: var(--text-color); }
+    }
+  </style></head><body><div id="event-timer-banner"></div><header class="header"><img src="https://vicar.com.ar/wp-content/uploads/2017/02/logo-vicar-300x80.png" alt="Logo Vicar" class="main-banner"><h1 class="event-title">🔨 Remate Feria</h1><div class="event-tag-container"><p class="event-tag"><b>Jueves 3 de Julio de 2025 a las 14:30hs</b><br>Predio ferial de la Sociedad Rural de Toay, <b>TOAY</b>, La Pampa</p></div></header><nav class="nav-container"><a href="index.html" class="nav-button ">🐮 Inicio</a><a href="1-gordo.html" class="nav-button ">1️⃣ Gordo</a><a href="2-toro.html" class="nav-button ">2️⃣ Toro</a><a href="3-vaca.html" class="nav-button ">3️⃣ Vaca</a><a href="4-vientre-prenado.html" class="nav-button ">4️⃣ Vientre Preñado</a><a href="5-vientre-parido.html" class="nav-button ">5️⃣ Vientre Parido</a><a href="6-macho.html" class="nav-button ">6️⃣ Macho</a><a href="7-m-y-h.html" class="nav-button active">7️⃣ M y H</a><a href="8-hembra.html" class="nav-button ">8️⃣ Hembra</a><a href="lista.html" class="nav-button ">📋 Lotes</a><a href="estimados.html" class="nav-button ">📝 Estimados</a><a href="siguiente.html" class="nav-button ">▶ Siguiente</a><a href="preguntas.html" class="nav-button ">❓ Preguntas</a><a href="contactos.html" class="nav-button ">📱 Contactos</a></nav><main class="container"><h2 class="category-title">7️⃣ M y H</h2><div class="placeholder-content"><p>Aún no hay contenido disponible para esta sección.</p></div></main><div class="theme-switcher-container">
+      <button id="theme-toggle" class="theme-toggle-button">Modo Oscuro/Claro</button>
+    </div><footer class="footer"><p>Vicar Ganadera S.A. - Consignatarios desde 1964 - Remates Feria en Victorica - Toay - General Acha</p></footer>
+    <div id="qrModal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="modal-close" onclick="hideQrPopup()">×</span>
+        <div class="modal-header"><h3 id="qrModalTitle"></h3></div>
+        <div class="modal-body"><img id="qrModalImage" src="" alt="Código QR del Lote" /></div>
+      </div>
+    </div>
+    <script>
+      const qrModal = document.getElementById('qrModal'), qrModalTitle = document.getElementById('qrModalTitle'), qrModalImage = document.getElementById('qrModalImage');
+      function showQrPopup(title, qrUrl) { if (qrModal && qrModalTitle && qrModalImage) { qrModalTitle.textContent = title; qrModalImage.src = qrUrl; qrModalImage.alt = 'Código QR para ' + title; qrModal.style.display = 'flex'; } }
+      function hideQrPopup() { if (qrModal) { qrModal.style.display = 'none'; } }
+      window.addEventListener('click', function(event) { if (event.target == qrModal) { hideQrPopup(); } });
+    </script><script>
+    (function() {
+      const themeToggle = document.getElementById('theme-toggle'); const htmlElement = document.documentElement; const lightText = '🕶️'; const darkText = '💡'; const chartImages = document.querySelectorAll('.chart-image');
+      function applyTheme(theme) {
+        if (theme === 'dark') {
+          htmlElement.classList.add('dark-mode'); themeToggle.textContent = darkText;
+          chartImages.forEach(img => { if (img.src.includes('quickchart.io')) { let newSrc = img.src.replace(/backgroundColor=transparent/g, 'backgroundColor=%232d3748').replace(/fontColor..333/g, 'fontColor:%23E2E8F0').replace(/fontColor..444/g, 'fontColor:%23E2E8F0').replace(/color..444/g, 'color:%23E2E8F0').replace(/fontColor..555/g, 'fontColor:%23A0AEC0').replace(/labels: { fontColor: '#333' }/g, "labels: { fontColor: '#E2E8F0' }"); img.src = newSrc; } });
+        } else {
+          htmlElement.classList.remove('dark-mode'); themeToggle.textContent = lightText;
+          chartImages.forEach(img => { if (img.src.includes('quickchart.io')) { let newSrc = img.src.replace(/backgroundColor=%232d3748/g, 'backgroundColor=transparent').replace(/fontColor:%23E2E8F0/g, 'fontColor:%23333').replace(/color:%23E2E8F0/g, 'color:%23444').replace(/fontColor:%23A0AEC0/g, 'fontColor:%23555').replace(/labels: { fontColor: '#E2E8F0' }/g, "labels: { fontColor: '#333' }"); img.src = newSrc; } });
+        }
+      }
+      const savedTheme = localStorage.getItem('vicar-theme') || 'light'; applyTheme(savedTheme);
+      themeToggle.addEventListener('click', () => { const currentTheme = htmlElement.classList.contains('dark-mode') ? 'dark' : 'light'; const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; localStorage.setItem('vicar-theme', newTheme); applyTheme(newTheme); });
+    })();
+  </script>
+  <script>
+    (function() {
+      const banner = document.getElementById('event-timer-banner');
+      const startDateStr = 'Thu Jul 03 2025 14:30:00 GMT-0300 (GMT-03:00)';
+      const endDateStr = 'Thu Jul 03 2025 20:00:00 GMT-0300 (GMT-03:00)';
+      if (!banner || !startDateStr || !endDateStr) { return; }
+      
+      const parseDate = (dateStr) => {
+        if (typeof dateStr === 'string' && dateStr.includes('Date')) {
+            const timestamp = parseInt(dateStr.match(/\d+/)[0]);
+            return new Date(timestamp);
+        }
+        return new Date(dateStr);
+      };
+
+      const startDate = parseDate(startDateStr);
+      const endDate = parseDate(endDateStr);
+
+      if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) { return; }
+      
+      let timerInterval = null;
+
+      function updateTimer() {
+        const now = new Date();
+        
+        if (now > endDate) {
+          banner.style.display = 'block';
+          banner.className = 'finished';
+          banner.innerHTML = '🔨 Remate Finalizado';
+          if (timerInterval) clearInterval(timerInterval);
+
+        } else if (now >= startDate && now <= endDate) {
+          banner.style.display = 'block';
+          banner.className = 'live';
+          banner.innerHTML = '🐮 AHORA 🐄';
+          if (timerInterval) clearInterval(timerInterval);
+          
+        } else {
+          banner.style.display = 'block';
+          const diff = startDate - now;
+          const days = Math.floor(diff / 86400000);
+          const hours = Math.floor((diff % 86400000) / 3600000);
+          const minutes = Math.floor((diff % 3600000) / 60000);
+          const seconds = Math.floor((diff % 60000) / 1000);
+          
+          let text = '';
+          if (diff < 86400000) { // Menos de 24 horas
+            banner.className = 'urgent';
+            text = `🎆 Faltan ${hours}h ${minutes}m ${seconds}s 🌆`;
+          } else {
+            banner.className = 'countdown';
+            text = `🥁 Faltan ${days}d ${hours}h ${minutes}m ${seconds}s ⏱`;
+          }
+          banner.innerHTML = text;
+        }
+      }
+      timerInterval = setInterval(updateTimer, 1000);
+      updateTimer(); // Primera ejecución inmediata
+    })();
+  </script>
+  </body></html>
