@@ -1,46 +1,11 @@
 <!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Vicar Ganadera - 6️⃣ Macho</title>
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap');
-    :root {
-      --bg-color: #f4f4f9; --card-bg-color: #ffffff; --text-color: #333; --text-color-light: #555;
-      --header-bg-color: #ffffff; --footer-bg-color: #ffffff; --nav-bg-color: #f8f8f8;
-      --primary-color: #0063a3; --primary-color-hover: #004a7c; --secondary-color: #e67e22;
-      --border-color: #ddd; --table-row-even-bg: #f8f8f8; --table-row-hover-bg: #e9ecef;
-      --button-secondary-bg: #6c757d; --button-secondary-hover: #5a6268; --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      --qr-button-bg: #555; --qr-button-hover: #333;
-      --font-primary: 'Roboto Mono', monospace;
-      --font-secondary: 'Roboto Slab', serif;
-    }
-    html.dark-mode {
-      --bg-color: #1a202c; --card-bg-color: #2d3748; --text-color: #E2E8F0; --text-color-light: #A0AEC0;
-      --header-bg-color: #2d3748; --footer-bg-color: #2d3748; --nav-bg-color: #283141;
-      --primary-color: #4299E1; --primary-color-hover: #2b6cb0; --secondary-color: #F6AD55;
-      --border-color: #4A5568; --table-row-even-bg: #2c3a4f; --table-row-hover-bg: #3a4b64;
-      --button-secondary-bg: #4A5568; --button-secondary-hover: #2D3748; --card-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      --qr-button-bg: #A0AEC0; --qr-button-hover: #718096;
-    }
-    
-    #event-timer-banner {
-      padding: 8px 15px; text-align: center; font-weight: bold; font-size: 1.1em;
-      width: 100%; box-sizing: border-box; margin-bottom: 10px; 
-      transition: background-color 0.5s, color 0.5s; display: none;
-      letter-spacing: 0.5px;
-    }
-    #event-timer-banner.countdown { background-color: var(--primary-color); color: #ffffff; }
-    html.dark-mode #event-timer-banner.countdown { background-color: #F59E0B; color: #1a202c; }
-    #event-timer-banner.urgent { background-color: #F59E0B; color: #1a202c; animation: pulse-urgent 1.5s infinite; }
-    #event-timer-banner.live { background-color: #39FF14; color: #000000; font-size: 1.3em; animation: pulse-live 1.5s infinite; text-shadow: 0 0 8px rgba(255,255,255,0.7); }
-    #event-timer-banner.finished { background-color: #000000; color: #ffffff; }
-    html.dark-mode #event-timer-banner.finished { background-color: #ffffff; color: #000000; }
-    @keyframes pulse-urgent { 0% { opacity: 1; } 50% { opacity: 0.8; } 100% { opacity: 1; } }
-    @keyframes pulse-live { 0% { box-shadow: 0 0 4px #39FF14, 0 0 8px #39FF14; } 50% { box-shadow: 0 0 15px #39FF14, 0 0 25px #39FF14; } 100% { box-shadow: 0 0 4px #39FF14, 0 0 8px #39FF14; } }
-    @media screen and (max-width: 768px) {
-      #event-timer-banner { font-size: 0.85em; padding: 8px 10px; letter-spacing: -0.5px; }
-      #event-timer-banner.live { font-size: 1.1em; }
-    }
-  
+    :root { --bg-color: #f4f4f9; --card-bg-color: #ffffff; --text-color: #333; --text-color-light: #555; --header-bg-color: #ffffff; --footer-bg-color: #ffffff; --nav-bg-color: #f8f8f8; --primary-color: #0063a3; --primary-color-hover: #004a7c; --secondary-color: #e67e22; --border-color: #ddd; --table-row-even-bg: #f8f8f8; --table-row-hover-bg: #e9ecef; --button-secondary-bg: #6c757d; --button-secondary-hover: #5a6268; --card-shadow: 0 4px 8px rgba(0,0,0,0.1); --qr-button-bg: #555; --qr-button-hover: #333; --font-primary: 'Roboto Mono', monospace; --font-secondary: 'Roboto Slab', serif; }
+    html.dark-mode { --bg-color: #1a202c; --card-bg-color: #2d3748; --text-color: #E2E8F0; --text-color-light: #A0AEC0; --header-bg-color: #2d3748; --footer-bg-color: #2d3748; --nav-bg-color: #283141; --primary-color: #4299E1; --primary-color-hover: #2b6cb0; --secondary-color: #F6AD55; --border-color: #4A5568; --table-row-even-bg: #2c3a4f; --table-row-hover-bg: #3a4b64; --button-secondary-bg: #4A5568; --button-secondary-hover: #2D3748; --card-shadow: 0 4px 8px rgba(0,0,0,0.3); --qr-button-bg: #A0AEC0; --qr-button-hover: #718096; }
+    #event-timer-banner{padding:8px 15px;text-align:center;font-weight:700;font-size:1.1em;width:100%;box-sizing:border-box;margin-bottom:10px;transition:background-color .5s,color .5s;display:none;letter-spacing:.5px}#event-timer-banner.countdown{background-color:var(--primary-color);color:#fff}html.dark-mode #event-timer-banner.countdown{background-color:#f59e0b;color:#1a202c}#event-timer-banner.urgent{background-color:#f59e0b;color:#1a202c;animation:pulse-urgent 1.5s infinite}#event-timer-banner.live{background-color:#39ff14;color:#000;font-size:1.3em;animation:pulse-live 1.5s infinite;text-shadow:0 0 8px rgba(255,255,255,.7)}#event-timer-banner.finished{background-color:#000;color:#fff}html.dark-mode #event-timer-banner.finished{background-color:#fff;color:#000}@keyframes pulse-urgent{0%{opacity:1}50%{opacity:.8}100%{opacity:1}}@keyframes pulse-live{0%{box-shadow:0 0 4px #39ff14,0 0 8px #39ff14}50%{box-shadow:0 0 15px #39ff14,0 0 25px #39ff14}100%{box-shadow:0 0 4px #39ff14,0 0 8px #39ff14}}@media screen and (max-width:768px){#event-timer-banner{font-size:.85em;padding:8px 10px;letter-spacing:-.5px}#event-timer-banner.live{font-size:1.1em}}
     body { font-family: var(--font-primary); margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); display: flex; flex-direction: column; min-height: 100vh; transition: background-color 0.3s, color 0.3s; }
-    .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; flex-grow: 1; width: 95%; }
+    .container { max-width: 1400px; margin: 20px auto; padding: 0 15px; flex-grow: 1; width: 95%; }
     .header { text-align: center; padding: 20px 10px; border-bottom: 1px solid var(--border-color); background-color: var(--header-bg-color); transition: background-color 0.3s, border-color 0.3s; }
     .header .main-banner { max-width: 220px; height: auto; margin-bottom: 20px; }
     .event-title, .category-title, .card-title, .modal-header h3 { font-family: var(--font-secondary); }
@@ -69,7 +34,8 @@
     .lotes-table th { background-color: var(--primary-color); color: white; font-weight: bold; }
     .lotes-table th.sortable-header { cursor: pointer; } .lotes-table th.sortable-header:hover { background-color: var(--primary-color-hover); } .lotes-table th.sortable-header.active { background-color: var(--secondary-color); }
     .lotes-table tbody tr { transition: background-color 0.2s; } .lotes-table tbody tr:nth-child(even) { background-color: var(--table-row-even-bg); } .lotes-table tbody tr:hover { background-color: var(--table-row-hover-bg); }
-    .charts-section { display: flex; flex-direction: column; gap: 25px; margin-top: 25px; } .chart-row-double { display: grid; grid-template-columns: 1fr; gap: 25px; } .chart-row-single { display: block; } .chart-card { padding: 15px; }
+    .charts-section { display: flex; flex-direction: column; gap: 25px; margin-top: 25px; } .chart-row-single { display: block; margin-top: 20px; } .chart-card { padding: 15px; }
+    .pie-charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 25px; } /* ¡NUEVO CSS! */
     .theme-switcher-container { text-align: center; padding: 30px 0 10px 0; } .theme-toggle-button { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
     .footer { background-color: var(--footer-bg-color); color: #888; text-align: center; padding: 20px 10px; border-top: 1px solid var(--border-color); margin-top: auto; transition: background-color 0.3s, border-color 0.3s; } .footer p { margin: 0; font-size: 0.9em; }
     .modal-overlay { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
@@ -79,10 +45,11 @@
     .modal-close { color: var(--text-color-light); position: absolute; top: 10px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; } .modal-close:hover { color: var(--text-color); }
     @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
     .placeholder-content { text-align: center; padding: 50px 20px; color: var(--text-color-light); border: 2px dashed var(--border-color); border-radius: 8px; margin-top: 20px; }
-    @media (min-width: 769px) { .video-grid, .maps-grid-container { grid-template-columns: repeat(2, 1fr); } .chart-row-double { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1050px) { .video-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 769px) { .video-grid, .maps-grid-container { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1300px) { .video-grid { grid-template-columns: repeat(3, 1fr); } }
     @media screen and (max-width: 768px) {
       .event-title { font-size: 1.5em; } .event-tag, .nav-button, .sort-button, .footer p { font-size: 0.9em; } .nav-button, .sort-button { padding: 8px 12px; }
+      .pie-charts-grid { grid-template-columns: 1fr; }
       .lotes-table { box-shadow: none; } .lotes-table thead { display: none; }
       .lotes-table, .lotes-table tbody, .lotes-table tr, .lotes-table td { display: block; width: 100%; box-sizing: border-box;}
       .lotes-table tr { margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 5px; background-color: var(--card-bg-color); box-shadow: var(--card-shadow); }
@@ -112,133 +79,4 @@
             <button class="qr-button" onclick="showQrPopup('13 Terneros C 122kg con 30 días', 'https://quickchart.io/qr?text=ed4e0fef'); event.stopPropagation();">QR</button>
         </div>
       </div>
-    </div></div></main><div class="theme-switcher-container">
-      <button id="theme-toggle" class="theme-toggle-button">Modo Oscuro/Claro</button>
-    </div><footer class="footer"><p>Vicar Ganadera S.A. - Consignatarios desde 1964 - Remates Feria en Victorica - Toay - General Acha</p></footer>
-    <div id="qrModal" class="modal-overlay">
-      <div class="modal-content">
-        <span class="modal-close" onclick="hideQrPopup()">×</span>
-        <div class="modal-header"><h3 id="qrModalTitle"></h3></div>
-        <div class="modal-body"><img id="qrModalImage" src="" alt="Código QR del Lote" /></div>
-      </div>
-    </div><script>
-        document.addEventListener('DOMContentLoaded', function() {
-          const lotesData = [{"idEvento":"18950555","titulo":"13 Terneros C 122kg con 30 días","videoUrl":"https://www.youtube.com/watch?v=w21Kol4KnmM","embedUrl":"https://www.youtube.com/embed/w21Kol4KnmM","qrCode":"https://quickchart.io/qr?text=ed4e0fef","videoUrlFullscreen":"https://www.youtube.com/embed/w21Kol4KnmM?autoplay=1&mute=1","whatsappText":"Hola%2C%20estoy%20interesado%20en%20este%20lote%20de%20Vicar%3A%2013%20Terneros%20C%20122kg%20con%2030%20d%C3%ADas.%20Video%3A%20https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dw21Kol4KnmM","grupo":"6️⃣ Macho","categoria":"🟢 Novillito","peso":246,"descriptionHTML":"🆔 <b>0fef</b><br>Plazo: <b>120</b><br>Sanidad: <b>Sin</b><br>China: <b>No</b><br>Motivo: <b>Faena</b><br>Reproducción: <b>CyE</b><br>Calificación: <b>⭐⭐</b><br>Notas: <b></b>","corral":3,"cantidad":10,"plazo":"120","sanidad":"Sin","china":"No","motivo":"Faena","reproduccion":"CyE","calificacion":"⭐⭐","notas":""}];
-          const tbody = document.getElementById('lotes-tbody');
-          const gridContainer = document.getElementById('video-grid-container');
-          const numericColumns = ['cantidad', 'peso'];
-          const pesos = lotesData.map(l => l.peso).filter(v => v > 0), cantidades = lotesData.map(l => l.cantidad).filter(v => v > 0);
-          const minPeso = Math.min(...pesos), maxPeso = Math.max(...pesos), minCantidad = Math.min(...cantidades), maxCantidad = Math.max(...cantidades);
-          function getColorForValue(v, min, max) { if (min === max) return 'hsl(120, 100%, 45%)'; const p = (v - min) / (max - min); return `hsl(${120 - (p*120)}, 100%, 45%)`; }
-          function renderTable(lotes) { if (!tbody) return; tbody.innerHTML = lotes.map(l => `<tr onclick="window.open('${l.videoUrl}','_blank')" style="cursor:pointer;"><td data-label="Corral"><b>${l.corral||''}</b></td><td data-label="Grupo"><b>${l.grupo||''}</b></td><td data-label="Categoría"><b>${l.categoria||''}</b></td><td data-label="Cantidad"><b style="color:${getColorForValue(l.cantidad,minCantidad,maxCantidad)}; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">${l.cantidad||''}</b></td><td data-label="Peso"><b style="color:${getColorForValue(l.peso,minPeso,maxPeso)}; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">${l.peso||''}</b></td><td data-label="Plazo">${l.plazo||''}</td><td data-label="Sanidad">${l.sanidad||''}</td><td data-label="China">${l.china||''}</td><td data-label="Motivo">${l.motivo||''}</td><td data-label="Reproducción">${l.reproduccion||''}</td><td data-label="Calificación">${l.calificacion||''}</td></tr>`).join(''); }
-          
-        function renderGrid(lotes) { 
-            if (!gridContainer) return; 
-            gridContainer.innerHTML = lotes.map(l => `
-                <div class="card">
-                    <div class="video-wrapper" onclick="window.open('${l.videoUrl || '#'}', '_blank')">
-                        <iframe src="${l.embedUrl}" title="${l.titulo}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">${l.titulo}</h3>
-                        <div class="card-description">${l.descriptionHTML}</div>
-                        <div class="card-buttons">
-                            <a href="https://api.whatsapp.com/send?text=${l.whatsappText}" class="whatsapp-button" target="_blank" onclick="event.stopPropagation();">WhatsApp</a>
-                            ${l.qrCode ? `<button class="qr-button" onclick="showQrPopup('${l.titulo.replace(/'/g, "\\'")}', '${l.qrCode}'); event.stopPropagation();">QR</button>` : ''}
-                        </div>
-                    </div>
-                </div>`).join(''); 
-        }
-          function sortAndRender(col, order) { let sorted = [...lotesData]; sorted.sort((a,b) => { const vA=a[col],vB=b[col]; if (numericColumns.includes(col)) return order==='asc'?(parseFloat(vA)||0)-(parseFloat(vB)||0):(parseFloat(vB)||0)-(parseFloat(vA)||0); else { const sA=String(vA||'').toLowerCase(),sB=String(vB||'').toLowerCase(); if(sA<sB)return order==='asc'?-1:1; if(sA>sB)return order==='asc'?1:-1; return 0; }}); if(tbody)renderTable(sorted); if(gridContainer)renderGrid(sorted); }
-          function handleSortClick(e) { const t=e.currentTarget,active=t.classList.contains('active'),col=t.dataset.column; let order=t.dataset.order,newOrder=active?(order==='asc'?'desc':'asc'):(numericColumns.includes(col)?'desc':'asc'); document.querySelectorAll('.sort-button,.sortable-header').forEach(el=>{el.classList.remove('active');if(el.dataset.label&&el.innerHTML!==el.dataset.label){el.innerHTML=el.dataset.label;}}); t.classList.add('active'); t.dataset.order=newOrder; t.innerHTML=`${t.dataset.label} ${newOrder==='asc'?'🔼':'🔽'}`; sortAndRender(col,newOrder); }
-          document.querySelectorAll('.sort-button').forEach(b=>b.addEventListener('click',handleSortClick));
-          document.querySelectorAll('.sortable-header').forEach(h=>h.addEventListener('click',handleSortClick));
-        });
-      </script>
-    <script>
-      const qrModal = document.getElementById('qrModal'), qrModalTitle = document.getElementById('qrModalTitle'), qrModalImage = document.getElementById('qrModalImage');
-      function showQrPopup(title, qrUrl) { if (qrModal && qrModalTitle && qrModalImage) { qrModalTitle.textContent = title; qrModalImage.src = qrUrl; qrModalImage.alt = 'Código QR para ' + title; qrModal.style.display = 'flex'; } }
-      function hideQrPopup() { if (qrModal) { qrModal.style.display = 'none'; } }
-      window.addEventListener('click', function(event) { if (event.target == qrModal) { hideQrPopup(); } });
-    </script><script>
-    (function() {
-      const themeToggle = document.getElementById('theme-toggle'); const htmlElement = document.documentElement; const lightText = '🕶️'; const darkText = '💡'; const chartImages = document.querySelectorAll('.chart-image');
-      function applyTheme(theme) {
-        if (theme === 'dark') {
-          htmlElement.classList.add('dark-mode'); themeToggle.textContent = darkText;
-          chartImages.forEach(img => { if (img.src.includes('quickchart.io')) { let newSrc = img.src.replace(/backgroundColor=transparent/g, 'backgroundColor=%232d3748').replace(/fontColor..333/g, 'fontColor:%23E2E8F0').replace(/fontColor..444/g, 'fontColor:%23E2E8F0').replace(/color..444/g, 'color:%23E2E8F0').replace(/fontColor..555/g, 'fontColor:%23A0AEC0').replace(/labels: { fontColor: '#333' }/g, "labels: { fontColor: '#E2E8F0' }"); img.src = newSrc; } });
-        } else {
-          htmlElement.classList.remove('dark-mode'); themeToggle.textContent = lightText;
-          chartImages.forEach(img => { if (img.src.includes('quickchart.io')) { let newSrc = img.src.replace(/backgroundColor=%232d3748/g, 'backgroundColor=transparent').replace(/fontColor:%23E2E8F0/g, 'fontColor:%23333').replace(/color:%23E2E8F0/g, 'color:%23444').replace(/fontColor:%23A0AEC0/g, 'fontColor:%23555').replace(/labels: { fontColor: '#E2E8F0' }/g, "labels: { fontColor: '#333' }"); img.src = newSrc; } });
-        }
-      }
-      const savedTheme = localStorage.getItem('vicar-theme') || 'light'; applyTheme(savedTheme);
-      themeToggle.addEventListener('click', () => { const currentTheme = htmlElement.classList.contains('dark-mode') ? 'dark' : 'light'; const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; localStorage.setItem('vicar-theme', newTheme); applyTheme(newTheme); });
-    })();
-  </script>
-  <script>
-    (function() {
-      const banner = document.getElementById('event-timer-banner');
-      const startDateStr = 'Thu Jul 03 2025 14:30:00 GMT-0300 (GMT-03:00)';
-      const endDateStr = 'Thu Jul 03 2025 20:00:00 GMT-0300 (GMT-03:00)';
-      if (!banner || !startDateStr || !endDateStr) { return; }
-      
-      const parseDate = (dateStr) => {
-        if (typeof dateStr === 'object' && dateStr instanceof Date) return dateStr;
-        if (typeof dateStr === 'string' && dateStr.includes('Date')) {
-            const timestamp = parseInt(dateStr.match(/\d+/)[0]);
-            return new Date(timestamp);
-        }
-        return new Date(dateStr);
-      };
-
-      const startDate = parseDate(startDateStr);
-      const endDate = parseDate(endDateStr);
-
-      if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) { return; }
-      
-      let timerInterval = null;
-
-      function updateTimer() {
-        const now = new Date();
-        
-        if (now > endDate) {
-          banner.style.display = 'block';
-          banner.className = 'finished';
-          banner.innerHTML = '🔨 Remate Finalizado';
-          if (timerInterval) clearInterval(timerInterval);
-
-        } else if (now >= startDate && now <= endDate) {
-          banner.style.display = 'block';
-          banner.className = 'live';
-          banner.innerHTML = '🐮 AHORA 🐄';
-          if (timerInterval) clearInterval(timerInterval);
-          
-        } else {
-          banner.style.display = 'block';
-          const diff = startDate - now;
-          const days = Math.floor(diff / 86400000);
-          const hours = Math.floor((diff % 86400000) / 3600000);
-          const minutes = Math.floor((diff % 3600000) / 60000);
-          const seconds = Math.floor((diff % 60000) / 1000);
-          
-          const dayText = days === 1 ? 'Día' : 'Días';
-          const hourText = hours === 1 ? 'Hora' : 'Horas';
-          const minuteText = minutes === 1 ? 'Minuto' : 'Minutos';
-          const secondText = seconds === 1 ? 'Segundo' : 'Segundos';
-          
-          const text = `🥁 ${days} ${dayText} ${hours} ${hourText} ${minutes} ${minuteText} ${seconds} ${secondText} 🥁`;
-
-          if (diff < 86400000) { // Menos de 24 horas
-            banner.className = 'urgent';
-          } else {
-            banner.className = 'countdown';
-          }
-          banner.innerHTML = text;
-        }
-      }
-      timerInterval = setInterval(updateTimer, 1000);
-      updateTimer(); // Primera ejecución inmediata
-    })();
-  </script>
-  </body></html>
+    </div></div></main><div class="theme-switcher-container"><button id="theme-toggle" class="theme-toggle-button">Modo Oscuro/Claro</button></div><footer class="footer"><p>Vicar Ganadera S.A. - Consignatarios desde 1964 - Remates Feria en Victorica - Toay - General Acha</p></footer><div id="qrModal" class="modal-overlay"><div class="modal-content"><span class="modal-close" onclick="hideQrPopup()">×</span><div class="modal-header"><h3 id="qrModalTitle"></h3></div><div class="modal-body"><img id="qrModalImage" src="" alt="Código QR del Lote" /></div></div></div><script>document.addEventListener('DOMContentLoaded',function(){const lotesData=[{"idEvento":"18950555","titulo":"13 Terneros C 122kg con 30 días","videoUrl":"https://www.youtube.com/watch?v=w21Kol4KnmM","embedUrl":"https://www.youtube.com/embed/w21Kol4KnmM","qrCode":"https://quickchart.io/qr?text=ed4e0fef","videoUrlFullscreen":"https://www.youtube.com/embed/w21Kol4KnmM?autoplay=1&mute=1","whatsappText":"Hola%2C%20estoy%20interesado%20en%20este%20lote%20de%20Vicar%3A%2013%20Terneros%20C%20122kg%20con%2030%20d%C3%ADas.%20Video%3A%20https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dw21Kol4KnmM","grupo":"6️⃣ Macho","categoria":"🟢 Novillito","peso":248,"descriptionHTML":"🆔 <b>0fef</b><br>Plazo: <b>120</b><br>Sanidad: <b>Sin</b><br>China: <b>No</b><br>Motivo: <b>Faena</b><br>Reproducción: <b>CyE</b><br>Calificación: <b>⭐⭐</b><br>Notas: <b></b>","corral":3,"cantidad":10,"plazo":"120","sanidad":"Sin","china":"No","motivo":"Faena","reproduccion":"CyE","calificacion":"⭐⭐","notas":""}];const tbody=document.getElementById('lotes-tbody');const gridContainer=document.getElementById('video-grid-container');const numericColumns=['cantidad','peso'];const pesos=lotesData.map(l=>l.peso).filter(v=>v>0),cantidades=lotesData.map(l=>l.cantidad).filter(v=>v>0);const minPeso=Math.min(...pesos),maxPeso=Math.max(...pesos),minCantidad=Math.min(...cantidades),maxCantidad=Math.max(...cantidades);function getColorForValue(v,min,max){if(min===max)return'hsl(120, 100%, 45%)';const p=(v-min)/(max-min);return`hsl(${120-(p*120)},100%,45%)`}function renderTable(lotes){if(!tbody)return;tbody.innerHTML=lotes.map(l=>`<tr onclick="window.open('${l.videoUrl}','_blank')" style="cursor:pointer;"><td data-label="Corral"><b>${l.corral||''}</b></td><td data-label="Grupo"><b>${l.grupo||''}</b></td><td data-label="Categoría"><b>${l.categoria||''}</b></td><td data-label="Cantidad"><b style="color:${getColorForValue(l.cantidad,minCantidad,maxCantidad)};text-shadow:1px 1px 2px rgba(0,0,0,0.3);">${l.cantidad||''}</b></td><td data-label="Peso"><b style="color:${getColorForValue(l.peso,minPeso,maxPeso)};text-shadow:1px 1px 2px rgba(0,0,0,0.3);">${l.peso||''}</b></td><td data-label="Plazo">${l.plazo||''}</td><td data-label="Sanidad">${l.sanidad||''}</td><td data-label="China">${l.china||''}</td><td data-label="Motivo">${l.motivo||''}</td><td data-label="Reproducción">${l.reproduccion||''}</td><td data-label="Calificación">${l.calificacion||''}</td></tr>`).join('')}function renderGrid(lotes){if(!gridContainer)return;gridContainer.innerHTML=lotes.map(l=>`<div class="card"><div class="video-wrapper" onclick="window.open('${l.videoUrl||'#'}','_blank')"><iframe src="${l.embedUrl}" title="${l.titulo}" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe></div><div class="card-content"><h3 class="card-title">${l.titulo}</h3><div class="card-description">${l.descriptionHTML}</div><div class="card-buttons"><a href="https://api.whatsapp.com/send?text=${l.whatsappText}" class="whatsapp-button" target="_blank" onclick="event.stopPropagation();">WhatsApp</a>${l.qrCode?`<button class="qr-button" onclick="showQrPopup('${l.titulo.replace(/'/g,"\\'")}', '${l.qrCode}');event.stopPropagation();">QR</button>`:''}</div></div></div>`).join('')}function sortAndRender(col,order){let sorted=[...lotesData];sorted.sort((a,b)=>{const vA=a[col],vB=b[col];if(numericColumns.includes(col))return order==='asc'?(parseFloat(vA)||0)-(parseFloat(vB)||0):(parseFloat(vB)||0)-(parseFloat(vA)||0);else{const sA=String(vA||'').toLowerCase(),sB=String(vB||'').toLowerCase();if(sA<sB)return order==='asc'?-1:1;if(sA>sB)return order==='asc'?1:-1;return 0}});if(tbody)renderTable(sorted);if(gridContainer)renderGrid(sorted)}function handleSortClick(e){const t=e.currentTarget,active=t.classList.contains('active'),col=t.dataset.column;let order=t.dataset.order,newOrder=active?(order==='asc'?'desc':'asc'):(numericColumns.includes(col)?'desc':'asc');document.querySelectorAll('.sort-button,.sortable-header').forEach(el=>{el.classList.remove('active');if(el.dataset.label&&el.innerHTML!==el.dataset.label){el.innerHTML=el.dataset.label}});t.classList.add('active');t.dataset.order=newOrder;t.innerHTML=`${t.dataset.label} ${newOrder==='asc'?'🔼':'🔽'}`;sortAndRender(col,newOrder)}document.querySelectorAll('.sort-button').forEach(b=>b.addEventListener('click',handleSortClick));document.querySelectorAll('.sortable-header').forEach(h=>h.addEventListener('click',handleSortClick))});</script><script>const qrModal=document.getElementById('qrModal'),qrModalTitle=document.getElementById('qrModalTitle'),qrModalImage=document.getElementById('qrModalImage');function showQrPopup(title,qrUrl){if(qrModal&&qrModalTitle&&qrModalImage){qrModalTitle.textContent=title;qrModalImage.src=qrUrl;qrModalImage.alt='Código QR para '+title;qrModal.style.display='flex'}}function hideQrPopup(){if(qrModal){qrModal.style.display='none'}}window.addEventListener('click',function(event){if(event.target==qrModal){hideQrPopup()}});</script><script>(function(){const themeToggle=document.getElementById('theme-toggle');const htmlElement=document.documentElement;const lightText='🕶️';const darkText='💡';const chartImages=document.querySelectorAll('.chart-image');function applyTheme(theme){const chartFontColor=theme==='dark'?'%23E2E8F0':'%23333';const axisFontColor=theme==='dark'?'%23A0AEC0':'%23555';const bgColor=theme==='dark'?'backgroundColor=%232d3748':'backgroundColor=transparent';if(theme==='dark'){htmlElement.classList.add('dark-mode');themeToggle.textContent=darkText}else{htmlElement.classList.remove('dark-mode');themeToggle.textContent=lightText}chartImages.forEach(img=>{if(img.src.includes('quickchart.io')){let newSrc=img.src.replace(/backgroundColor=(transparent|%232d3748)/g,bgColor).replace(/fontColor..*?(?=&)/g,'fontColor='+chartFontColor).replace(/fontColor...*?(?=[,}])/g,'fontColor:'+chartFontColor).replace(/ticks: { fontColor: '.*?' }/g,"ticks: { fontColor: '"+axisFontColor+"' }");img.src=newSrc}})}const savedTheme=localStorage.getItem('vicar-theme')||'light';applyTheme(savedTheme);themeToggle.addEventListener('click',()=>{const newTheme=htmlElement.classList.contains('dark-mode')?'light':'dark';localStorage.setItem('vicar-theme',newTheme);applyTheme(newTheme)})})();</script><script>(function(){const banner=document.getElementById('event-timer-banner');const startDateStr='Thu Jul 03 2025 14:30:00 GMT-0300 (GMT-03:00)';const endDateStr='Thu Jul 03 2025 20:00:00 GMT-0300 (GMT-03:00)';if(!banner||!startDateStr||!endDateStr){return}const parseDate=dateStr=>{if(typeof dateStr==='object'&&dateStr instanceof Date)return dateStr;if(typeof dateStr==='string'&&dateStr.includes('Date')){const timestamp=parseInt(dateStr.match(/\d+/)[0]);return new Date(timestamp)}return new Date(dateStr)};const startDate=parseDate(startDateStr);const endDate=parseDate(endDateStr);if(isNaN(startDate.getTime())||isNaN(endDate.getTime())){return}let timerInterval=null;function updateTimer(){const now=new Date();if(now>endDate){banner.style.display='block';banner.className='finished';banner.innerHTML='🔨 Remate Finalizado';if(timerInterval)clearInterval(timerInterval)}else if(now>=startDate&&now<=endDate){banner.style.display='block';banner.className='live';banner.innerHTML='🐮 AHORA 🐄';if(timerInterval)clearInterval(timerInterval)}else{banner.style.display='block';const diff=startDate-now;const days=Math.floor(diff/864e5);const hours=Math.floor((diff%864e5)/36e5);const minutes=Math.floor((diff%36e5)/6e4);const seconds=Math.floor((diff%6e4)/1e3);const dayText=days===1?'Día':'Días';const hourText=hours===1?'Hora':'Horas';const minuteText=minutes===1?'Minuto':'Minutos';const secondText=seconds===1?'Segundo':'Segundos';const text=`🥁 ${days} ${dayText} ${hours} ${hourText} ${minutes} ${minuteText} ${seconds} ${secondText} 🥁`;if(diff<864e5){banner.className='urgent'}else{banner.className='countdown'}banner.innerHTML=text}}timerInterval=setInterval(updateTimer,1000);updateTimer()})();</script></body></html>
