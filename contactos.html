@@ -1,5 +1,6 @@
 <!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Vicar Ganadera - 📱 Contactos</title>
   <style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap');
     :root {
       --bg-color: #f4f4f9; --card-bg-color: #ffffff; --text-color: #333; --text-color-light: #555;
       --header-bg-color: #ffffff; --footer-bg-color: #ffffff; --nav-bg-color: #f8f8f8;
@@ -7,6 +8,8 @@
       --border-color: #ddd; --table-row-even-bg: #f8f8f8; --table-row-hover-bg: #e9ecef;
       --button-secondary-bg: #6c757d; --button-secondary-hover: #5a6268; --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
       --qr-button-bg: #555; --qr-button-hover: #333;
+      --font-primary: 'Roboto Mono', monospace;
+      --font-secondary: 'Roboto Slab', serif;
     }
     html.dark-mode {
       --bg-color: #1a202c; --card-bg-color: #2d3748; --text-color: #E2E8F0; --text-color-light: #A0AEC0;
@@ -21,6 +24,7 @@
       padding: 8px 15px; text-align: center; font-weight: bold; font-size: 1.1em;
       width: 100%; box-sizing: border-box; margin-bottom: 10px; 
       transition: background-color 0.5s, color 0.5s; display: none;
+      letter-spacing: 0.5px;
     }
     #event-timer-banner.countdown { background-color: var(--primary-color); color: #ffffff; }
     html.dark-mode #event-timer-banner.countdown { background-color: #F59E0B; color: #1a202c; }
@@ -35,25 +39,26 @@
       #event-timer-banner.live { font-size: 1.1em; }
     }
   
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); display: flex; flex-direction: column; min-height: 100vh; transition: background-color 0.3s, color 0.3s; }
+    body { font-family: var(--font-primary); margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); display: flex; flex-direction: column; min-height: 100vh; transition: background-color 0.3s, color 0.3s; }
     .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; flex-grow: 1; width: 95%; }
     .header { text-align: center; padding: 20px 10px; border-bottom: 1px solid var(--border-color); background-color: var(--header-bg-color); transition: background-color 0.3s, border-color 0.3s; }
     .header .main-banner { max-width: 220px; height: auto; margin-bottom: 20px; }
-    .event-title { font-size: 1.8em; color: var(--text-color); margin: 15px 0; font-weight: bold; }
+    .event-title, .category-title, .card-title, .modal-header h3 { font-family: var(--font-secondary); }
+    .event-title { font-size: 1.8em; color: var(--text-color); margin: 15px 0; font-weight: 700; }
     .event-tag-container { max-width: 800px; margin: 0 auto; } .event-tag { font-size: 1.1em; color: var(--text-color-light); margin: 0; line-height: 1.6; } .event-tag b { color: var(--primary-color); }
     .nav-container, .sort-controls { text-align: center; padding: 15px 10px; background-color: var(--nav-bg-color); border-bottom: 1px solid var(--border-color); transition: background-color 0.3s, border-color 0.3s;}
     .nav-container { flex-wrap: wrap; display: flex; justify-content: center; gap: 8px;}
     .sort-controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-    .nav-button, .sort-button { text-decoration: none; border: none; color: white; padding: 10px 18px; margin: 0; border-radius: 5px; font-weight: bold; cursor: pointer; transition: background-color 0.3s, transform 0.2s; }
+    .nav-button, .sort-button { text-decoration: none; border: none; color: white; padding: 10px 18px; margin: 0; border-radius: 5px; font-weight: bold; cursor: pointer; transition: background-color 0.3s, transform 0.2s; font-family: var(--font-primary); }
     .nav-button { background-color: var(--primary-color); } .nav-button:hover { background-color: var(--primary-color-hover); transform: translateY(-2px); } .nav-button.active { background-color: var(--secondary-color); }
     .sort-button { background-color: var(--button-secondary-bg); font-size: 0.9em; } .sort-button:hover { background-color: var(--button-secondary-hover); } .sort-button.active { background-color: var(--primary-color); font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-    .category-title { font-size: 1.8em; text-align: center; color: var(--text-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-top: 10px; margin-bottom: 30px; }
+    .category-title { font-size: 1.8em; text-align: center; color: var(--text-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-top: 10px; margin-bottom: 30px; font-weight: 700;}
     .video-grid, .maps-grid-container { display: grid; gap: 25px; grid-template-columns: 1fr; }
     .card { background: var(--card-bg-color); border-radius: 8px; box-shadow: var(--card-shadow); overflow: hidden; display: flex; flex-direction: column; transition: background-color 0.3s, box-shadow 0.3s; }
     .card.chart-card img { width: 100%; height: auto; }
     .card .video-wrapper { cursor: pointer; }
     .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background-color: #000; } .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .card-content { padding: 15px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; } .card-title { font-size: 1.1rem; font-weight: 600; margin: 0 0 15px 0; color: var(--text-color); } .card-description { font-size: 0.95em; color: var(--text-color-light); text-align: left; line-height: 1.5; flex-grow: 1; }
+    .card-content { padding: 15px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; } .card-title { font-size: 1.1rem; font-weight: 700; margin: 0 0 15px 0; color: var(--text-color); } .card-description { font-size: 0.95em; color: var(--text-color-light); text-align: left; line-height: 1.5; flex-grow: 1; }
     .card-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
     .whatsapp-button, .qr-button { flex: 1; display: inline-block; padding: 12px 20px; color: white; text-decoration: none; border: none; border-radius: 5px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background-color 0.2s; text-align: center; }
     .whatsapp-button { background-color: #25D366; } .whatsapp-button:hover { background-color: #128C7E; }
@@ -161,13 +166,17 @@
           const minutes = Math.floor((diff % 3600000) / 60000);
           const seconds = Math.floor((diff % 60000) / 1000);
           
-          let text = '';
+          const dayText = days === 1 ? 'Día' : 'Días';
+          const hourText = hours === 1 ? 'Hora' : 'Horas';
+          const minuteText = minutes === 1 ? 'Minuto' : 'Minutos';
+          const secondText = seconds === 1 ? 'Segundo' : 'Segundos';
+          
+          const text = `🥁 ${days} ${dayText} ${hours} ${hourText} ${minutes} ${minuteText} ${seconds} ${secondText} 🥁`;
+
           if (diff < 86400000) { // Menos de 24 horas
             banner.className = 'urgent';
-            text = `🎆 Faltan ${hours}h ${minutes}m ${seconds}s 🌆`;
           } else {
             banner.className = 'countdown';
-            text = `🥁 Faltan ${days}d ${hours}h ${minutes}m ${seconds}s ⏱`;
           }
           banner.innerHTML = text;
         }
