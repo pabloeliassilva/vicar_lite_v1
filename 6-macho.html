@@ -69,7 +69,7 @@
     .lotes-table th { background-color: var(--primary-color); color: white; font-weight: bold; }
     .lotes-table th.sortable-header { cursor: pointer; } .lotes-table th.sortable-header:hover { background-color: var(--primary-color-hover); } .lotes-table th.sortable-header.active { background-color: var(--secondary-color); }
     .lotes-table tbody tr { transition: background-color 0.2s; } .lotes-table tbody tr:nth-child(even) { background-color: var(--table-row-even-bg); } .lotes-table tbody tr:hover { background-color: var(--table-row-hover-bg); }
-    .charts-section { display: flex; flex-direction: column; gap: 25px; margin-top: 25px; } .chart-row-double { display: grid; grid-template-columns: 1fr; gap: 25px; } .chart-row-single { display: block; } .chart-card { padding: 15px; }
+    .charts-section { display: flex; flex-direction: column; gap: 25px; margin-top: 25px; } .charts-grid { display: grid; grid-template-columns: 1fr; gap: 25px; } .chart-row-single { display: block; } .chart-card { padding: 15px; }
     .theme-switcher-container { text-align: center; padding: 30px 0 10px 0; } .theme-toggle-button { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
     .footer { background-color: var(--footer-bg-color); color: #888; text-align: center; padding: 20px 10px; border-top: 1px solid var(--border-color); margin-top: auto; transition: background-color 0.3s, border-color 0.3s; } .footer p { margin: 0; font-size: 0.9em; }
     .modal-overlay { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
@@ -79,8 +79,8 @@
     .modal-close { color: var(--text-color-light); position: absolute; top: 10px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; } .modal-close:hover { color: var(--text-color); }
     @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
     .placeholder-content { text-align: center; padding: 50px 20px; color: var(--text-color-light); border: 2px dashed var(--border-color); border-radius: 8px; margin-top: 20px; }
-    @media (min-width: 769px) { .video-grid, .maps-grid-container { grid-template-columns: repeat(2, 1fr); } .chart-row-double { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1050px) { .video-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 769px) { .video-grid, .maps-grid-container { grid-template-columns: repeat(2, 1fr); } .charts-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1050px) { .video-grid, .charts-grid { grid-template-columns: repeat(3, 1fr); } }
     @media screen and (max-width: 768px) {
       .event-title { font-size: 1.5em; } .event-tag, .nav-button, .sort-button, .footer p { font-size: 0.9em; } .nav-button, .sort-button { padding: 8px 12px; }
       .lotes-table { box-shadow: none; } .lotes-table thead { display: none; }
@@ -123,7 +123,7 @@
       </div>
     </div><script>
         document.addEventListener('DOMContentLoaded', function() {
-          const lotesData = [{"idEvento":"18950555","titulo":"13 Terneros C 122kg con 30 días","videoUrl":"https://www.youtube.com/watch?v=w21Kol4KnmM","embedUrl":"https://www.youtube.com/embed/w21Kol4KnmM","qrCode":"https://quickchart.io/qr?text=ed4e0fef","videoUrlFullscreen":"https://www.youtube.com/embed/w21Kol4KnmM?autoplay=1&mute=1","whatsappText":"Hola%2C%20estoy%20interesado%20en%20este%20lote%20de%20Vicar%3A%2013%20Terneros%20C%20122kg%20con%2030%20d%C3%ADas.%20Video%3A%20https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dw21Kol4KnmM","grupo":"6️⃣ Macho","categoria":"🟢 Novillito","peso":230,"descriptionHTML":"🆔 <b>0fef</b><br>Plazo: <b>120</b><br>Sanidad: <b>Sin</b><br>China: <b>No</b><br>Motivo: <b>Faena</b><br>Reproducción: <b>CyE</b><br>Calificación: <b>⭐⭐</b><br>Notas: <b></b>","corral":3,"cantidad":10,"plazo":"120","sanidad":"Sin","china":"No","motivo":"Faena","reproduccion":"CyE","calificacion":"⭐⭐","notas":""}];
+          const lotesData = [{"idEvento":"18950555","titulo":"13 Terneros C 122kg con 30 días","videoUrl":"https://www.youtube.com/watch?v=w21Kol4KnmM","embedUrl":"https://www.youtube.com/embed/w21Kol4KnmM","qrCode":"https://quickchart.io/qr?text=ed4e0fef","videoUrlFullscreen":"https://www.youtube.com/embed/w21Kol4KnmM?autoplay=1&mute=1","whatsappText":"Hola%2C%20estoy%20interesado%20en%20este%20lote%20de%20Vicar%3A%2013%20Terneros%20C%20122kg%20con%2030%20d%C3%ADas.%20Video%3A%20https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dw21Kol4KnmM","grupo":"6️⃣ Macho","categoria":"🟢 Novillito","peso":232,"descriptionHTML":"🆔 <b>0fef</b><br>Plazo: <b>120</b><br>Sanidad: <b>Sin</b><br>China: <b>No</b><br>Motivo: <b>Faena</b><br>Reproducción: <b>CyE</b><br>Calificación: <b>⭐⭐</b><br>Notas: <b></b>","corral":3,"cantidad":10,"plazo":"120","sanidad":"Sin","china":"No","motivo":"Faena","reproduccion":"CyE","calificacion":"⭐⭐","notas":""}];
           const tbody = document.getElementById('lotes-tbody');
           const gridContainer = document.getElementById('video-grid-container');
           const numericColumns = ['cantidad', 'peso'];
