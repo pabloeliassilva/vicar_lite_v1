@@ -1,5 +1,6 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Vicar Ganadera - Inicio</title>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Vicar Ganadera - 🐮 Inicio</title>
   <style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap');
     :root {
       --bg-color: #f4f4f9; --card-bg-color: #ffffff; --text-color: #333; --text-color-light: #555;
       --header-bg-color: #ffffff; --footer-bg-color: #ffffff; --nav-bg-color: #f8f8f8;
@@ -7,6 +8,8 @@
       --border-color: #ddd; --table-row-even-bg: #f8f8f8; --table-row-hover-bg: #e9ecef;
       --button-secondary-bg: #6c757d; --button-secondary-hover: #5a6268; --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
       --qr-button-bg: #555; --qr-button-hover: #333;
+      --font-primary: 'Roboto Mono', monospace;
+      --font-secondary: 'Roboto Slab', serif;
     }
     html.dark-mode {
       --bg-color: #1a202c; --card-bg-color: #2d3748; --text-color: #E2E8F0; --text-color-light: #A0AEC0;
@@ -19,53 +22,43 @@
     
     #event-timer-banner {
       padding: 8px 15px; text-align: center; font-weight: bold; font-size: 1.1em;
-      width: 100%; box-sizing: border-box; margin-bottom: 10px;
+      width: 100%; box-sizing: border-box; margin-bottom: 10px; 
       transition: background-color 0.5s, color 0.5s; display: none;
+      letter-spacing: 0.5px;
     }
-    /* Estado Cuenta Regresiva (> 24h) */
     #event-timer-banner.countdown { background-color: var(--primary-color); color: #ffffff; }
-    html.dark-mode #event-timer-banner.countdown { background-color: #F59E0B; color: #1a202c; } /* Naranja brillante */
-   
-    /* Estado Urgente (< 24h) */
+    html.dark-mode #event-timer-banner.countdown { background-color: #F59E0B; color: #1a202c; }
     #event-timer-banner.urgent { background-color: #F59E0B; color: #1a202c; animation: pulse-urgent 1.5s infinite; }
-    html.dark-mode #event-timer-banner.urgent { background-color: #F59E0B; color: #1a202c; }
-
-
-    /* Estado En Vivo */
     #event-timer-banner.live { background-color: #39FF14; color: #000000; font-size: 1.3em; animation: pulse-live 1.5s infinite; text-shadow: 0 0 8px rgba(255,255,255,0.7); }
-   
-    /* Estado Finalizado */
     #event-timer-banner.finished { background-color: #000000; color: #ffffff; }
     html.dark-mode #event-timer-banner.finished { background-color: #ffffff; color: #000000; }
-
-
     @keyframes pulse-urgent { 0% { opacity: 1; } 50% { opacity: 0.8; } 100% { opacity: 1; } }
     @keyframes pulse-live { 0% { box-shadow: 0 0 4px #39FF14, 0 0 8px #39FF14; } 50% { box-shadow: 0 0 15px #39FF14, 0 0 25px #39FF14; } 100% { box-shadow: 0 0 4px #39FF14, 0 0 8px #39FF14; } }
-   
     @media screen and (max-width: 768px) {
       #event-timer-banner { font-size: 0.85em; padding: 8px 10px; letter-spacing: -0.5px; }
       #event-timer-banner.live { font-size: 1.1em; }
     }
-   /* NUEVO: Inyectando los estilos del banner */
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); display: flex; flex-direction: column; min-height: 100vh; transition: background-color 0.3s, color 0.3s; }
+  
+    body { font-family: var(--font-primary); margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); display: flex; flex-direction: column; min-height: 100vh; transition: background-color 0.3s, color 0.3s; }
     .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; flex-grow: 1; width: 95%; }
     .header { text-align: center; padding: 20px 10px; border-bottom: 1px solid var(--border-color); background-color: var(--header-bg-color); transition: background-color 0.3s, border-color 0.3s; }
     .header .main-banner { max-width: 220px; height: auto; margin-bottom: 20px; }
-    .event-title { font-size: 1.8em; color: var(--text-color); margin: 15px 0; font-weight: bold; }
+    .event-title, .category-title, .card-title, .modal-header h3 { font-family: var(--font-secondary); }
+    .event-title { font-size: 1.8em; color: var(--text-color); margin: 15px 0; font-weight: 700; }
     .event-tag-container { max-width: 800px; margin: 0 auto; } .event-tag { font-size: 1.1em; color: var(--text-color-light); margin: 0; line-height: 1.6; } .event-tag b { color: var(--primary-color); }
     .nav-container, .sort-controls { text-align: center; padding: 15px 10px; background-color: var(--nav-bg-color); border-bottom: 1px solid var(--border-color); transition: background-color 0.3s, border-color 0.3s;}
     .nav-container { flex-wrap: wrap; display: flex; justify-content: center; gap: 8px;}
     .sort-controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-    .nav-button, .sort-button { text-decoration: none; border: none; color: white; padding: 10px 18px; margin: 0; border-radius: 5px; font-weight: bold; cursor: pointer; transition: background-color 0.3s, transform 0.2s; }
+    .nav-button, .sort-button { text-decoration: none; border: none; color: white; padding: 10px 18px; margin: 0; border-radius: 5px; font-weight: bold; cursor: pointer; transition: background-color 0.3s, transform 0.2s; font-family: var(--font-primary); }
     .nav-button { background-color: var(--primary-color); } .nav-button:hover { background-color: var(--primary-color-hover); transform: translateY(-2px); } .nav-button.active { background-color: var(--secondary-color); }
     .sort-button { background-color: var(--button-secondary-bg); font-size: 0.9em; } .sort-button:hover { background-color: var(--button-secondary-hover); } .sort-button.active { background-color: var(--primary-color); font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-    .category-title { font-size: 1.8em; text-align: center; color: var(--text-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-top: 10px; margin-bottom: 30px; }
+    .category-title { font-size: 1.8em; text-align: center; color: var(--text-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-top: 10px; margin-bottom: 30px; font-weight: 700;}
     .video-grid, .maps-grid-container { display: grid; gap: 25px; grid-template-columns: 1fr; }
     .card { background: var(--card-bg-color); border-radius: 8px; box-shadow: var(--card-shadow); overflow: hidden; display: flex; flex-direction: column; transition: background-color 0.3s, box-shadow 0.3s; }
     .card.chart-card img { width: 100%; height: auto; }
     .card .video-wrapper { cursor: pointer; }
     .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background-color: #000; } .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .card-content { padding: 15px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; } .card-title { font-size: 1.1rem; font-weight: 600; margin: 0 0 15px 0; color: var(--text-color); } .card-description { font-size: 0.95em; color: var(--text-color-light); text-align: left; line-height: 1.5; flex-grow: 1; }
+    .card-content { padding: 15px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; } .card-title { font-size: 1.1rem; font-weight: 700; margin: 0 0 15px 0; color: var(--text-color); } .card-description { font-size: 0.95em; color: var(--text-color-light); text-align: left; line-height: 1.5; flex-grow: 1; }
     .card-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
     .whatsapp-button, .qr-button { flex: 1; display: inline-block; padding: 12px 20px; color: white; text-decoration: none; border: none; border-radius: 5px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background-color 0.2s; text-align: center; }
     .whatsapp-button { background-color: #25D366; } .whatsapp-button:hover { background-color: #128C7E; }
@@ -77,7 +70,7 @@
     .lotes-table th.sortable-header { cursor: pointer; } .lotes-table th.sortable-header:hover { background-color: var(--primary-color-hover); } .lotes-table th.sortable-header.active { background-color: var(--secondary-color); }
     .lotes-table tbody tr { transition: background-color 0.2s; } .lotes-table tbody tr:nth-child(even) { background-color: var(--table-row-even-bg); } .lotes-table tbody tr:hover { background-color: var(--table-row-hover-bg); }
     .charts-section { display: flex; flex-direction: column; gap: 25px; margin-top: 25px; } .chart-row-double { display: grid; grid-template-columns: 1fr; gap: 25px; } .chart-row-single { display: block; } .chart-card { padding: 15px; }
-    .theme-switcher-container { text-align: center; padding: 30px 0 10px 0; } .theme-toggle-button { background-color: var(--button-secondary-bg); color: white; border: none; padding: 12px 25px; font-size: 1rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: background-color 0.3s, transform 0.2s; } .theme-toggle-button:hover { transform: translateY(-2px); background-color: var(--button-secondary-hover); }
+    .theme-switcher-container { text-align: center; padding: 30px 0 10px 0; } .theme-toggle-button { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
     .footer { background-color: var(--footer-bg-color); color: #888; text-align: center; padding: 20px 10px; border-top: 1px solid var(--border-color); margin-top: auto; transition: background-color 0.3s, border-color 0.3s; } .footer p { margin: 0; font-size: 0.9em; }
     .modal-overlay { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
     .modal-content { background-color: var(--card-bg-color); margin: auto; padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); width: 90%; max-width: 350px; position: relative; animation: fadeIn 0.3s; }
@@ -85,6 +78,7 @@
     .modal-body { padding-top: 15px; text-align: center; } .modal-body img { max-width: 100%; height: auto; border-radius: 4px; }
     .modal-close { color: var(--text-color-light); position: absolute; top: 10px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; } .modal-close:hover { color: var(--text-color); }
     @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .placeholder-content { text-align: center; padding: 50px 20px; color: var(--text-color-light); border: 2px dashed var(--border-color); border-radius: 8px; margin-top: 20px; }
     @media (min-width: 769px) { .video-grid, .maps-grid-container { grid-template-columns: repeat(2, 1fr); } .chart-row-double { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 1050px) { .video-grid { grid-template-columns: repeat(3, 1fr); } }
     @media screen and (max-width: 768px) {
@@ -95,8 +89,8 @@
       .lotes-table td { text-align: right; padding-left: 50%; position: relative; border: none; border-bottom: 1px solid var(--border-color); } .lotes-table td:last-child { border-bottom: none; }
       .lotes-table td::before { content: attr(data-label); position: absolute; left: 15px; width: calc(50% - 20px); text-align: left; font-weight: bold; color: var(--text-color); }
     }
-  </style></head><body><div id="event-timer-banner"></div><header class="header"><img src="https://vicar.com.ar/wp-content/uploads/2017/02/logo-vicar-300x80.png" alt="Logo Vicar" class="main-banner"><h1 class="event-title">🔨 Remate Feria</h1><div class="event-tag-container"><p class="event-tag"><b>Jueves 3 de Julio de 2025 a las 14:30hs</b><br>Predio ferial de la Sociedad Rural de Toay, <b>TOAY</b>, La Pampa</p></div></header><nav class="nav-container"><a href="index.html" class="nav-button active">Inicio</a><a href="Lista.html" class="nav-button ">📋 Lista</a><a href="1-Gordo.html" class="nav-button ">1️⃣ Gordo</a><a href="2-Toro.html" class="nav-button ">2️⃣ Toro</a><a href="6-Macho.html" class="nav-button ">6️⃣ Macho</a></nav><main class="container"><div class="maps-grid-container"><div class="card"><div class="card-content" style="padding-bottom: 8px;"><p style="font-size: 0.9em; color: grey; margin: 0; text-align: center;">🛰️ VISTA SATELITAL</p></div><div class="video-wrapper"><iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=-36.691283, -64.386801&t=k&z=17&ie=UTF8&iwloc=&output=embed"></iframe></div></div><div class="card"><div class="card-content" style="padding-bottom: 8px;"><p style="font-size: 0.9em; color: grey; margin: 0; text-align: center;">🗺️ VISTA DE MAPA</p></div><div class="video-wrapper"><iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=-36.691283, -64.386801&z=17&ie=UTF8&iwloc=&output=embed"></iframe></div></div></div></main><div class="theme-switcher-container">
-      <button id="theme-toggle" class="theme-toggle-button">¿Cambiar a Modo Oscuro?</button>
+  </style></head><body><div id="event-timer-banner"></div><header class="header"><img src="https://vicar.com.ar/wp-content/uploads/2017/02/logo-vicar-300x80.png" alt="Logo Vicar" class="main-banner"><h1 class="event-title">🔨 Remate Feria</h1><div class="event-tag-container"><p class="event-tag"><b>Jueves 3 de Julio de 2025 a las 14:30hs</b><br>Predio ferial de la Sociedad Rural de Toay, <b>TOAY</b>, La Pampa</p></div></header><nav class="nav-container"><a href="index.html" class="nav-button active">🐮 Inicio</a><a href="1-gordo.html" class="nav-button ">1️⃣ Gordo</a><a href="2-toro.html" class="nav-button ">2️⃣ Toro</a><a href="6-macho.html" class="nav-button ">6️⃣ Macho</a><a href="lista.html" class="nav-button ">📋 Lotes</a></nav><main class="container"><div class="maps-grid-container"><div class="card"><div class="card-content" style="padding-bottom: 8px;"><p style="font-size: 0.9em; color: grey; margin: 0; text-align: center;">🛰️ VISTA SATELITAL</p></div><div class="video-wrapper"><iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=-36.691283, -64.386801&t=k&z=17&ie=UTF8&iwloc=&output=embed"></iframe></div></div><div class="card"><div class="card-content" style="padding-bottom: 8px;"><p style="font-size: 0.9em; color: grey; margin: 0; text-align: center;">🗺️ VISTA DE MAPA</p></div><div class="video-wrapper"><iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=-36.691283, -64.386801&z=17&ie=UTF8&iwloc=&output=embed"></iframe></div></div></div></main><div class="theme-switcher-container">
+      <button id="theme-toggle" class="theme-toggle-button">Modo Oscuro/Claro</button>
     </div><footer class="footer"><p>Vicar Ganadera S.A. - Consignatarios desde 1964 - Remates Feria en Victorica - Toay - General Acha</p></footer>
     <div id="qrModal" class="modal-overlay">
       <div class="modal-content">
@@ -112,7 +106,7 @@
       window.addEventListener('click', function(event) { if (event.target == qrModal) { hideQrPopup(); } });
     </script><script>
     (function() {
-      const themeToggle = document.getElementById('theme-toggle'); const htmlElement = document.documentElement; const lightText = '🕶'; const darkText = '💡'; const chartImages = document.querySelectorAll('.chart-image');
+      const themeToggle = document.getElementById('theme-toggle'); const htmlElement = document.documentElement; const lightText = '🕶️'; const darkText = '💡'; const chartImages = document.querySelectorAll('.chart-image');
       function applyTheme(theme) {
         if (theme === 'dark') {
           htmlElement.classList.add('dark-mode'); themeToggle.textContent = darkText;
@@ -132,9 +126,9 @@
       const startDateStr = 'Thu Jul 03 2025 14:30:00 GMT-0300 (GMT-03:00)';
       const endDateStr = 'Thu Jul 03 2025 20:00:00 GMT-0300 (GMT-03:00)';
       if (!banner || !startDateStr || !endDateStr) { return; }
-     
-      // Google Sheets puede devolver fechas como '/Date(1719802800000)/', lo manejamos.
+      
       const parseDate = (dateStr) => {
+        if (typeof dateStr === 'object' && dateStr instanceof Date) return dateStr;
         if (typeof dateStr === 'string' && dateStr.includes('Date')) {
             const timestamp = parseInt(dateStr.match(/\d+/)[0]);
             return new Date(timestamp);
@@ -142,32 +136,28 @@
         return new Date(dateStr);
       };
 
-
       const startDate = parseDate(startDateStr);
       const endDate = parseDate(endDateStr);
 
-
       if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) { return; }
-     
+      
       let timerInterval = null;
-
 
       function updateTimer() {
         const now = new Date();
-       
+        
         if (now > endDate) {
           banner.style.display = 'block';
           banner.className = 'finished';
           banner.innerHTML = '🔨 Remate Finalizado';
           if (timerInterval) clearInterval(timerInterval);
 
-
         } else if (now >= startDate && now <= endDate) {
           banner.style.display = 'block';
           banner.className = 'live';
           banner.innerHTML = '🐮 AHORA 🐄';
           if (timerInterval) clearInterval(timerInterval);
-         
+          
         } else {
           banner.style.display = 'block';
           const diff = startDate - now;
@@ -175,14 +165,18 @@
           const hours = Math.floor((diff % 86400000) / 3600000);
           const minutes = Math.floor((diff % 3600000) / 60000);
           const seconds = Math.floor((diff % 60000) / 1000);
-         
-          let text = '';
+          
+          const dayText = days === 1 ? 'Día' : 'Días';
+          const hourText = hours === 1 ? 'Hora' : 'Horas';
+          const minuteText = minutes === 1 ? 'Minuto' : 'Minutos';
+          const secondText = seconds === 1 ? 'Segundo' : 'Segundos';
+          
+          const text = `🥁 ${days} ${dayText} ${hours} ${hourText} ${minutes} ${minuteText} ${seconds} ${secondText} 🥁`;
+
           if (diff < 86400000) { // Menos de 24 horas
             banner.className = 'urgent';
-            text = `🎆 Faltan ${hours} Horas ${minutes} Minutos ${seconds} Segundos 🌆`;
           } else {
             banner.className = 'countdown';
-            text = `🥁 Faltan ${days} Días ${hours} Horas ${minutes} Minutos ${seconds} Segundos ⏱`;
           }
           banner.innerHTML = text;
         }
